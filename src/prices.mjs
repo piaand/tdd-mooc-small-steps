@@ -4,9 +4,6 @@ import express from "express";
 // Refactor the following code to get rid of the legacy Date class.
 // Use Temporal.PlainDate instead. See /test/date_conversion.spec.mjs for examples.
 
-function dateToTemporalPlain(date) {
-  return date instanceof Date ? new Temporal.PlainDate(date.getFullYear(), date.getMonth(), date.getDate()) : date
-}
 
 function createApp(database) {
   function calculateCost(age, type, date, baseCost) {
