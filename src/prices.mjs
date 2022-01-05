@@ -49,7 +49,8 @@ function createApp(database) {
 
   function calculateReduction(date) {
     let reduction = 0;
-    if (date && isMonday(date) && !isHoliday(date)) {
+    const tempDate = dateToTemporalPlain(date)
+    if (tempDate && isMonday(tempDate) && !isHoliday(tempDate)) {
       reduction = 35;
     }
     return reduction;
