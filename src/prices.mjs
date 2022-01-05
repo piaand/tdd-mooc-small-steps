@@ -57,8 +57,7 @@ function createApp(database) {
   }
 
   function isMonday(date) {
-    const tempDate = dateToTemporalPlain(date)
-    return tempDate.dayOfWeek === 1;
+    return date.dayOfWeek === 1;
   }
 
   function isHoliday(date) {
