@@ -5,7 +5,7 @@ import express from "express";
 // Use Temporal.PlainDate instead. See /test/date_conversion.spec.mjs for examples.
 
 function dateToTemporalPlain(date) {
-  return new Temporal.PlainDate(date.getFullYear(), date.getMonth(), date.getDate())
+  return date instanceof Date ? new Temporal.PlainDate(date.getFullYear(), date.getMonth(), date.getDate()) : date
 }
 
 function createApp(database) {
