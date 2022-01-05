@@ -13,7 +13,8 @@ function createApp(database) {
     if (type === "night") {
       return calculateCostForNightTicket(age, baseCost);
     } else {
-      return calculateCostForDayTicket(age, date, baseCost);
+      const tempDate = dateToTemporalPlain(date)
+      return calculateCostForDayTicket(age, tempDate, baseCost);
     }
   }
 
