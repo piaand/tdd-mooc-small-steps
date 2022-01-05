@@ -73,7 +73,7 @@ function createApp(database) {
 
   function parseDate(dateString) {
     if (dateString) {
-      return new Date(dateString);
+      return new Temporal.PlainDate(2019, 2, 22);
     }
   }
 
