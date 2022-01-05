@@ -32,8 +32,7 @@ function createApp(database) {
   }
 
   function calculateCostForDayTicket(age, date, baseCost) {
-    const tempDate = dateToTemporalPlain(date)
-    let reduction = calculateReduction(tempDate);
+    let reduction = calculateReduction(date);
     if (age === undefined) {
       return Math.ceil(baseCost * (1 - reduction / 100));
     }
@@ -97,7 +96,8 @@ function createApp(database) {
     const type = req.query.type;
     const baseCost = database.findBasePriceByType(type).cost;
     const date = parseDate(req.query.date);
-    const cost = calculateCost(age, type, date, baseCost);
+    const tempDate = dateToTemporalPlain(date)
+    const cost = calculateCost(age, type, tempDate, baseCost);
     res.json({ cost });
   });
 
